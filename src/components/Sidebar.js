@@ -26,13 +26,13 @@ const Sidebar = () => {
           <IoMdArrowForward className="text-2xl" />
         </div>
       </div>
-      <div className="flex flex-col gap-y-2 h-[350px] lg:h-[580px] overflow-y-auto overflow-x-hidden border-b">
+      <div className="flex flex-col max-h-[300px] lg:max-h-[580px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
-      <div className="flex flex-col gap-y-3 py-4 mt-4">
-        <div className="flex justify-between items-center ">
+      <div className="flex flex-col py-4 mt-4">
+        <div className="flex justify-between mb-3 items-center ">
           {/* total */}
           <div className="uppercase font-semibold">
             <span className="mr-2">total</span>$ {parseFloat(total).toFixed(2)}
@@ -45,18 +45,20 @@ const Sidebar = () => {
             <FiTrash2 />
           </div>
         </div>
-        <Link
-          to={"/"}
-          className="bg-gray-200 flex p-4 justify-center items-center text-primary font-medium"
-        >
-          View Cart
-        </Link>
-        <Link
-          to={"/"}
-          className="bg-primary flex p-4 justify-center items-center text-white font-medium"
-        >
-          Checkout
-        </Link>
+        <div className="grid grid-cols-2 gap-2">
+          <Link
+            to={"/"}
+            className="bg-gray-200 flex p-4 mb-3 justify-center items-center text-primary font-medium"
+          >
+            View Cart
+          </Link>
+          <Link
+            to={"/"}
+            className="bg-primary flex p-4 mb-3 justify-center items-center text-white font-medium"
+          >
+            Checkout
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -8,24 +8,28 @@ const CartItem = ({ item }) => {
   const { removeFromCart, increaseAmount, decreaseAmount } =
     useContext(CartContext);
   return (
-    <div className="flex gap-x-4 py-2 lg:py-6 border-b border-gray-200 font-light text-gray-500">
-      <div className="w-full min-h-[150px] flex items-center gap-x-4">
-        <Link to={`/product/${id}`} className="mr-2 lg:mr-0">
-          <img className="max-w-[80px]" src={image} alt={title} />
+    <div className="flex gap-x-4 py-2 lg:py-6 border-b border-gray-200 font-light text-gray-500 ">
+      <div className="w-full min-h-[150px] flex items-center relative">
+        <Link to={`/product/${id}`} className="mr-4">
+          <img
+            className="max-w-[60px] lg:max-w-[80px]"
+            src={image}
+            alt={title}
+          />
         </Link>
         <div className="w-full flex flex-col">
           <div className="flex justify-between mb-2">
             {/* Title */}
             <Link
               to={`/product/${id}`}
-              className="text-sm uppercase font-medium max-w-[240px] text-primary hover:underline"
+              className="hidden lg:block text-sm uppercase font-medium max-w-[240px] text-primary hover:underline"
             >
               {title}
             </Link>
             {/* Remove */}
             <div
               onClick={() => removeFromCart(id)}
-              className="text-xl cursor-pointer w-fit h-fit"
+              className="text-xl cursor-pointer w-fit h-fit absolute right-2 top-2"
             >
               <IoMdClose className="text-gray-500 hover:text-red-500 transition" />
             </div>
