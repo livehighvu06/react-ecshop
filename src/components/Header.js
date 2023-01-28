@@ -9,15 +9,8 @@ const Header = () => {
   // header state
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const { cart, itemAmount, setItemAmount } = useContext(CartContext);
+  const { itemAmount } = useContext(CartContext);
 
-  // update item amount
-  useEffect(() => {
-    if (cart) {
-      const amount = cart.reduce((acc, cur) => acc + cur.amount, 0);
-      setItemAmount(amount);
-    }
-  }, [cart]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
@@ -26,8 +19,8 @@ const Header = () => {
   return (
     <header
       className={`${
-        isActive ? "bg-none py-6 " : "bg-white py-4 shadow-md"
-      } fixed t-0 w-full z-10 transition-all duration-500`}
+        isActive ? "bg-slate-50 shadow-md" : "bg-none"
+      } fixed py-4 t-0 w-full z-10 transition-all duration-500`}
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
