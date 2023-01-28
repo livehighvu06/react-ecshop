@@ -24,7 +24,7 @@ const Header = () => {
     >
       <div className="container mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link to={"/react-ecshop/"}>
+        <Link to={"/"}>
           <div>
             <img className="w-[40px]" src={Logo} alt="" />
           </div>

@@ -12,14 +12,11 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="overflow-hidden">
-      <BrowserRouter>
+      <BrowserRouter basename="/react-ecshop/">
         <Header />
         <Routes>
-          <Route path="/react-ecshop/" element={<Home />} />
-          <Route
-            path="/react-ecshop/product/:id"
-            element={<ProductDetails />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
         <Sidebar />
         <Footer />

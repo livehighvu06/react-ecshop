@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
+import localData from "../data/products.json";
 
 export const ProductContext = createContext();
 
@@ -6,13 +7,8 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch("https://fakestoreapi.com/products");
-      const data = await res.json();
-      setProducts(data);
-    };
-    fetchData();
-  }, []);
+    setProducts(localData);
+  }, [products]);
   return (
     <ProductContext.Provider value={{ products }}>
       {children}
