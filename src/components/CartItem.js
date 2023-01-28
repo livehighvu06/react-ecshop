@@ -5,7 +5,8 @@ import { CartContext } from "../contexts/CartContext";
 
 const CartItem = ({ item }) => {
   const { id, title, image, price, amount } = item;
-  const { removeFromCart } = useContext(CartContext);
+  const { removeFromCart, increaseAmount, decreaseAmount } =
+    useContext(CartContext);
   return (
     <div className="flex gap-x-4 py-2 lg:py-6 border-b border-gray-200 font-light text-gray-500">
       <div className="w-full min-h-[150px] flex items-center gap-x-4">
@@ -33,14 +34,20 @@ const CartItem = ({ item }) => {
             {/* qty */}
             <div className="flex flex-1 max-w-[100px] items-center h-full border text-primary font-medium">
               {/* minus */}
-              <div className="flex-1">
-                <IoMdRemove className="mx-auto" />
+              <div
+                onClick={() => decreaseAmount(id)}
+                className="flex-1 flex justify-center items-center h-full"
+              >
+                <IoMdRemove />
               </div>
               {/* amount */}
               <div className="flex-1 text-center">{amount}</div>
               {/* plus */}
-              <div className="flex-1">
-                <IoMdAdd className="mx-auto" />
+              <div
+                onClick={() => increaseAmount(id)}
+                className="flex-1 flex justify-center items-center h-full"
+              >
+                <IoMdAdd />
               </div>
             </div>
             {/* item price */}

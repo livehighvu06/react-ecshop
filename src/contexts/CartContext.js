@@ -3,7 +3,10 @@ import React, { createContext, useState, useEffect } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
+  // cart state
   const [cart, setCart] = useState([]);
+  // item amount state
+  const [itemAmount, setItemAmount] = useState(0);
   // add to cart
   const addToCart = (product, id) => {
     // 未加入購物車
@@ -29,8 +32,45 @@ const CartProvider = ({ children }) => {
     const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
   };
+  // clear
+  const clearCart = () => {
+    setCart([]);
+  };
+  // increase amount
+  const increaseAmount = (id) => {
+    const item = cart.find((item) => item.id === id);
+    addToCart(item, id);
+  };
+  // decrease amount
+  const decreaseAmount = (id) => {
+    const itemInCart = cart.find((item) => item.id === id);
+    if (itemInCart) {
+      const newCart = cart.map((item) => {
+        if (item.id === id) {
+          return { ...item, amount: itemInCart.amount - 1 };
+        } else {
+          return item;
+        }
+      });
+      setCart(newCart);
+    }
+    if (itemInCart.amount < 2) {
+      removeFromCart(id);
+    }
+  };
   return (
-    <CartContext.Provider value={{ addToCart, cart, removeFromCart }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        increaseAmount,
+        decreaseAmount,
+        itemAmount,
+        setItemAmount,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -8,8 +8,7 @@ import { CartContext } from "../contexts/CartContext";
 
 const Sidebar = () => {
   const { isOpen, handleClose } = useContext(SidebarContext);
-  const { cart } = useContext(CartContext);
-  const {} = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   return (
     <div
       className={`${
@@ -29,6 +28,19 @@ const Sidebar = () => {
         {cart.map((item) => {
           return <CartItem item={item} key={item.id} />;
         })}
+      </div>
+      <div className="flex justify-between items-center gap-y-3 py-4 mt-4">
+        {/* total */}
+        <div className="uppercase font-semibold">
+          <span className="mr-2">total</span>$ 1000
+        </div>
+        {/* clear cart */}
+        <div
+          onClick={clearCart}
+          className="cursor-pointer py-4 bg-red-500 text-white text-xl w-12 h-12 flex justify-center items-center"
+        >
+          <FiTrash2 />
+        </div>
       </div>
     </div>
   );
