@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
+import Loading from "../components/Loading";
 
 const ProductDetails = () => {
   // 從網址取得product id
@@ -13,13 +14,13 @@ const ProductDetails = () => {
   if (!product) {
     return (
       <section className="w-screen h-screen flex justify-center items-center">
-        Loading...
+        <Loading />
       </section>
     );
   }
   const { title, price, description, image } = product;
   return (
-    <section className="pt-32 pb-12 lg:py-32 h-screen">
+    <section className="pt-32 pb-12 lg:py-32 h-screen flex items-center">
       <div className="container mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           {/* image */}
@@ -32,7 +33,9 @@ const ProductDetails = () => {
           </div>
           {/* text */}
           <div className="flex-1 text-center lg:text-left">
-            <h1 className="text-[26px] font-medium mb-2 max-w-[450px]">text</h1>
+            <h1 className="text-[26px] font-medium mb-2 max-w-[450px]">
+              {title}
+            </h1>
             <div className="text-xl text-red-500 font-medium mb-6">
               $ {price}
             </div>
