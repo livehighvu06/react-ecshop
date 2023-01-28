@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/react-ecshop/static/css/main.90c32b98.css",
-    "main.js": "/react-ecshop/static/js/main.652d28cf.js",
+    "main.js": "/react-ecshop/static/js/main.4a1403b7.js",
     "static/media/bg_hero.svg": "/react-ecshop/static/media/bg_hero.cd5c9e83759e74a20d2b.svg",
     "static/media/logo.svg": "/react-ecshop/static/media/logo.602f42bc5247b6c8fc88dcf001c1a477.svg",
     "index.html": "/react-ecshop/index.html",
     "main.90c32b98.css.map": "/react-ecshop/static/css/main.90c32b98.css.map",
-    "main.652d28cf.js.map": "/react-ecshop/static/js/main.652d28cf.js.map"
+    "main.4a1403b7.js.map": "/react-ecshop/static/js/main.4a1403b7.js.map"
   },
   "entrypoints": [
     "static/css/main.90c32b98.css",
-    "static/js/main.652d28cf.js"
+    "static/js/main.4a1403b7.js"
   ]
 }
