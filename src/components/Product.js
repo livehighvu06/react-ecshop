@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { BsPlus, BsEyeFill } from "react-icons/bs";
+import { AiFillStar } from "react-icons/ai";
 import { CartContext } from "../contexts/CartContext";
 
 const Product = ({ product }) => {
   const { addToCart } = useContext(CartContext);
-  const { id, image, category, title, price } = product;
+  const { id, image, category, title, price, rating } = product;
   return (
-    <div>
+    <article>
       <div className="border border-[#e4e4e4] h-[300px] mb-4 relative overflow-hidden group transition cursor-pointer">
         <div className="w-full h-full flex justify-center items-center">
           <div className="w-[200px] mx-auto flex justify-center items-center">
@@ -30,13 +31,19 @@ const Product = ({ product }) => {
       </div>
       {/* category & title & price */}
       <div>
-        <div className="text-sm capitalize text-gray-500 mb-1">{category}</div>
+        <div className="flex justify-between mb-1">
+          <div className="text-sm capitalize text-gray-500">{category}</div>
+          <div className="flex items-center">
+            <AiFillStar className="text-sky-500" />
+            <span className="block ml-1">{rating.rate}</span>
+          </div>
+        </div>
         <Link to={`/product/${id}`}>
-          <h2 className="font-semibold mb-1">{title}</h2>
+          <h2 className="font-semibold mb-1 line-clamp-2">{title}</h2>
         </Link>
         <div className="font-semibold">$ {price}</div>
       </div>
-    </div>
+    </article>
   );
 };
 
