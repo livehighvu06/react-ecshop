@@ -10,7 +10,7 @@ const CartItem = ({ item }) => {
   return (
     <div className="flex gap-x-4 py-2 lg:py-6 border-b border-gray-200 font-light text-gray-500 ">
       <div className="w-full min-h-[150px] flex items-center relative">
-        <Link to={`/product/${id}`} className="mr-4">
+        <Link to={`/product/${id}`} className="mr-4 flex-none">
           <img
             className="max-w-[60px] lg:max-w-[80px]"
             src={image}
