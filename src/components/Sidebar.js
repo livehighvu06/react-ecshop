@@ -47,13 +47,13 @@ const Sidebar = () => {
         </div>
         <div className="grid grid-cols-2 gap-2">
           <Link
-            to={"/"}
+            to={"/react-ecshop/"}
             className="bg-gray-200 flex p-4 mb-3 justify-center items-center text-primary font-medium"
           >
             View Cart
           </Link>
           <Link
-            to={"/"}
+            to={"/react-ecshop/"}
             className="bg-primary flex p-4 mb-3 justify-center items-center text-white font-medium"
           >
             Checkout
