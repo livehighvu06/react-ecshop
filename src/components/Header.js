@@ -9,7 +9,15 @@ const Header = () => {
   // header state
   const [isActive, setIsActive] = useState(false);
   const { isOpen, setIsOpen } = useContext(SidebarContext);
-  const { itemAmount, setItemAmount } = useContext(CartContext);
+  const { cart, itemAmount, setItemAmount } = useContext(CartContext);
+
+  // update item amount
+  useEffect(() => {
+    if (cart) {
+      const amount = cart.reduce((acc, cur) => acc + cur.amount, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       window.scrollY > 60 ? setIsActive(true) : setIsActive(false);
