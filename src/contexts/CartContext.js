@@ -7,6 +7,8 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   // item amount state
   const [itemAmount, setItemAmount] = useState(0);
+  // total price state
+  const [total, setTotal] = useState(0);
   // add to cart
   const addToCart = (product, id) => {
     // 未加入購物車
@@ -58,6 +60,17 @@ const CartProvider = ({ children }) => {
       removeFromCart(id);
     }
   };
+  useEffect(() => {
+    const total = cart.reduce((acc, cur) => acc + cur.price * cur.amount, 0);
+    setTotal(total);
+  }, [cart]);
+  // update item amount
+  useEffect(() => {
+    if (cart) {
+      const amount = cart.reduce((acc, cur) => acc + cur.amount, 0);
+      setItemAmount(amount);
+    }
+  }, [cart]);
   return (
     <CartContext.Provider
       value={{
@@ -69,6 +82,8 @@ const CartProvider = ({ children }) => {
         decreaseAmount,
         itemAmount,
         setItemAmount,
+        total,
+        setTotal,
       }}
     >
       {children}
