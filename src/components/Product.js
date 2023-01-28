@@ -21,7 +21,7 @@ const Product = ({ product }) => {
             </div>
           </button>
           <Link
-            to={`/react-ecshop/product/${id}`}
+            to={`/product/${id}`}
             className="w-10 h-10 bg-white flex justify-center items-center text-primary drop-shadow-xl"
           >
             <BsEyeFill />
