@@ -1,10 +1,8 @@
 import React from "react";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Home from "./pages/Home";
 import ProductDetails from "./pages/ProductDetails";
-
+import ScrollToTop from "./components/ScrollToTop";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,7 +10,8 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <div className="overflow-hidden">
-      <BrowserRouter basename="/">
+      <BrowserRouter onUpdate={() => window.scrollTo(0, 0)} basename="/">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
