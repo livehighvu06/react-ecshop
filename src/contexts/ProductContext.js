@@ -8,7 +8,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     setProducts(localData);
-  }, [products]);
+  }, []);
   return (
     <ProductContext.Provider value={{ products }}>
       {children}
